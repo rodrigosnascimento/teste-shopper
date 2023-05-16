@@ -126,7 +126,7 @@ Content-Type: application/json
 1. Clone o repositório para o seu ambiente local:
 
    ```
-   git clone [<URL do repositório>](https://github.com/rodrigosnascimento/teste-shopper)
+   git clone https://github.com/rodrigosnascimento/teste-shopper
    ```
 
 2. Acesse o diretório do projeto:
