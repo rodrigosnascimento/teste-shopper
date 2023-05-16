@@ -46,9 +46,9 @@ export class ProductValidator {
         }
     }
 
-    static validatePriceAdjustment(newPrice: number, salesPrice: number): void {
+    static validatePriceAdjustment(newPrice: number, salesPrice: number, product: Product): void {
         if (newPrice > salesPrice * 1.1 || newPrice < salesPrice * 0.9 || newPrice === salesPrice) {
-            throw new Error("O reajuste de preço não pode ser maior ou menor do que 10% do valor atual")
+            throw new Error(`O reajuste de preço do produto ${product.name} não pode ser maior ou menor do que 10% do valor atual`)
         }
     }
 }
