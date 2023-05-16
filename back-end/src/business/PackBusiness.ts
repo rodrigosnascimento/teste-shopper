@@ -39,7 +39,7 @@ export class PackBusiness{
             const productCostPrice = Number(product.cost_price)
             
             ProductValidator.validatePriceGreaterThanCost(newPrice, productCostPrice)
-            ProductValidator.validatePriceAdjustment(newPrice, productSalesPrice)
+            ProductValidator.validatePriceAdjustment(newPrice, productSalesPrice, product)
 
             productsToUpdate.push({code: product.code, name: product.name, cost_price: productCostPrice, sales_price: newPrice})
             packs.push({pack_code: packId, product_code: productCode, name: product.name, cost_price: productCostPrice, sales_price: newPrice})
