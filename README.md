@@ -121,7 +121,7 @@ Content-Type: application/json
 - Cors
 - Knex
 
-## Configuração e execução local (continuação)
+## Configuração e execução local
 
 1. Clone o repositório para o seu ambiente local:
 
