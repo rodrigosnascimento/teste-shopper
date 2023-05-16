@@ -19,7 +19,8 @@ export class ProductBusiness {
         })
 
         let products: Product[] = []
-
+        let productsToResponse: any[] = []
+        
         for (let i = 1; i < matches.length; i++) {
             const newPrice = Number(matches[i][1])
             const productCode = Number(matches[i][0])
@@ -36,12 +37,13 @@ export class ProductBusiness {
             const costPrice = Number(product.cost_price)
 
             ProductValidator.validatePriceGreaterThanCost(newPrice, costPrice)
-            ProductValidator.validatePriceAdjustment(newPrice, salesPrice)
+            ProductValidator.validatePriceAdjustment(newPrice, salesPrice, product)
 
             products.push({ code: product.code, name: product.name, cost_price: costPrice, sales_price: newPrice })
+            productsToResponse.push({code: product.code, name: product.name, current_price: product.sales_price, new_price: newPrice})
         }
         await productDatabase.updateProduct(products)
 
-        return products
+        return productsToResponse
     }
 }
